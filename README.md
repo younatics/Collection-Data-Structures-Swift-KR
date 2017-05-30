@@ -148,5 +148,10 @@ Counted Mutable set: {(
 )}) with count for Ringo: 2
 ```
 ### NSOrderedSet
+- `NSOrderedSet`은 개별적인 오브젝트들의 그룹을 순서대로 저장 할 수있게 해줍니다.
+>`ordered set`을 `Array`의 대안으로 테스팅할 때 사용해보시면 배열보다 더 빠른것을 느낄 수 있습니다. 
 
-
+### NSHashTable and NSMapTable
+- `NSHashTable`은 `NSMutableSet`과 비슷하지만 몇가지 다른점이 있습니다
+- `NSHashTable`은 오브젝트 뿐만 아니라 `non-object`또한 더할 수 있습니다. `NSHashTableOptions`로 메모리 또한 관리 할 수 있습니다.
+- `NSMapTable`은 딕셔너리 같은 자료구조이지만, `NSHashTable`과 비슷하게 메모리를 관리한다는 측면이 있습니다.
