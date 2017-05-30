@@ -65,6 +65,88 @@ if let ellensCat = cats["Ellen"] {
 }
 ```
 
+아래는 `Objective-C`와 `Swift`의 비교 결과입니다. 
+- In raw time, creating Swift `Dictionaries` is roughly 6 times faster than creating `NSMutableDictionaries` but both degrade at roughly the same `O(n`) rate.
+- Adding items to Swift `Dictionaries` is roughly 100 times faster than adding them to `NSMutableDictionaries` in raw time, and both degrade close to the best-case-scenario `O(1)` rate promised by Apple’s documentation.
+- Removing items from Swift `Dictionaries` is roughly 8 times faster than removing items from `NSMutableDictionaries`, but the degradation of performance is again close to `O(1)` for both types.
+- Swift is also faster at lookup, with both performing roughly at an `O(1)` rate. This version of Swift is the first where it beats Foundation by a significant amount.
 
+퍼포먼스가 크게 차이가 나지 않는다고 합니다.
+
+### Sets
+- 셋은 순서가 없고 유일한 값을 저장하는 데이터 구조입니다. 중복으로 데이터를 등록 할 수 없습니다.
+- `Set`에 선언되어있는 값들은 모두 같은 `type` 이어야 합니다.
+- `Objective-c` 에서는 각각 `NSSet`과 `NSMutableSet`이 있습니다.
+
+##### 이럴때 쓰면 좋습니다.
+- 셋은 중복없이 유니크한 값을 중복없이 뽑을 경우 좋습니다. 
+- `Snippet`을 하나 보겠습니다. 
+```Swift
+let names = ["John", "Paul", "George", "Ringo", "Mick", "Keith", "Charlie", "Ronnie"]
+var stringSet = Set<String>() // 1
+var loopsCount = 0
+while stringSet.count < 4 {
+    let randomNumber = arc4random_uniform(UInt32(names.count)) // 2
+    let randomName = names[Int(randomNumber)] // 3
+    print(randomName) // 4
+    stringSet.insert(randomName) // 5
+    loopsCount += 1 // 6
+}
+// 7
+print("Loops: " + loopsCount.description + ", Set contents: " + stringSet.description)
+```
+
+1. 셋을 초기화 합니다.
+2. 아이템 갯수중에 랜덤의 아이를 뽑습니다
+3. 인덱스에 있는 아이를 가져옵니다
+4. 로그를 남깁니다
+5. `mutable set`에 값을 저장힙낟. 만약 값이 저장되어 있는 경우에는 값을 저장하지 않습니다.
+6. 루프 카우트를 늘려서 루프를 다 돌게 합니다
+7. 루프가 끝나면 값을 로그에 남깁니다
+
+```Swift
+John
+Ringo
+John
+Ronnie
+Ronnie
+George
+Loops: 6, Set contents: ["Ronnie", "John", "Ringo", "George"]
+```
+로그에는 6개의 값이 찍혔지만 결론적으로 `Set`에는 4개의 값이 들어가 있습니다.
+
+
+## 덜 알려졌지만 있는 데이터 구조들
+### NSCache
+- `NSCache`를 사용하는 것은 `NSMutableDictionary`를 사용하는것돠 매우 유사합니다. 
+- 다른 점은 메모리가 낮아질 경우 `NSCache`데이터는 지워 질 수 있습니다. 그리고 항상 재생성됩니다.
+>캐시는 화면뒤에서 비동기적으로 자동으로 메모리에 상주 할 지, 남을지 결정합니다.
+
+### NSCountedSet
+- `NSMutableSet`를 상속받아서 만들어진 데이터 구조로, 얼마나 많은 오브젝트가 `mutable set`에 더해해졌는지 알 수 있게 해줍니다.
+- 하단 코드를 참고해주세요
+
+```Swift
+let countedMutable = NSCountedSet()
+for name in names {
+    countedMutable.add(name)
+    countedMutable.add(name)
+}
+
+let ringos = countedMutable.count(for: "Ringo")
+print("Counted Mutable set: \(countedMutable)) with count for Ringo: \(ringos)")
+
+Counted Mutable set: {(
+    George,
+    John,
+    Ronnie,
+    Mick,
+    Keith,
+    Charlie,
+    Paul,
+    Ringo
+)}) with count for Ringo: 2
+```
+### NSOrderedSet
 
 
