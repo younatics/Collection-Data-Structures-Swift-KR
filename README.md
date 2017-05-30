@@ -26,7 +26,7 @@ Big-O 표현법은 정확하게 자료를 연산 할 때 시간 그래프를 표
 ## Common iOS Data Structures
 `Array`, `Dictionarys`, `Sets` 가 가장 흔한 데이터 구조입니다. 각각의 구조와 성능에 대해 알아봅니다. 또한 `Objectice-C`와`Swift`에서 각각의 데이터구조를 비교해봅니다.
 
-###Arrays
+### Arrays
 - `Array`는 순서를 가지고 있는 배열입니다. `index`를 통해서 각각의 아이템에 접근 할 수 있습니다. 인덱스를 가지고 아이템을 가져오는 것을 `subscripting`이라고 합니다.
 - `Objective-C`의 `NSArray`는 `Swift`에서 `let`으로 선언된 `Array`와 같습니다. `NSMutableArray`는 `var`로 선언된 `Array`와 같습니다.
 - 최악의 케이스는 ` O(log n)`이 실행되지만 보통 `O(1)`이 연산됩니다.
