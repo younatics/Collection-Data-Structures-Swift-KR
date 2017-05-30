@@ -1,16 +1,16 @@
 # Collection Data Structures Swift - KR
 Collection Data 스위프트 구조를 소개합니다.좋은 글이라 생각되어 번역합니다. 핵심적인 부분을 제외하고는 번역을 제외하고 의역했습니다. 본문은 [여기](https://www.raywenderlich.com/123100/collection-data-structures-swift-2)를 참고해주세요.
 
-##Introduction
+## Introduction
 많은 데이터를 처리하는 어플리케이션을 만들고 있을 때를 생각해보세요. 언제 데이터를 넣고 어떻게 그 많은 데이터를 효율적으로 핸들링을 하실 건가요? 
 많은 데이터를 처리 할 경우에는 `Array`, `Dictionarys`, `Sets` 에 대한 근본적인 개념을 알고 있는게 중요합니다. 이 `collection data structures` 에 명확한 개념을 가질 경우 처리 속도는 어마어마하게 빨라 질 것 입니다.
-#####듀토리얼의 순서는 다음과 같습니다.
+##### 듀토리얼의 순서는 다음과 같습니다.
 1. 데이터 구조에 대해 개념을 가지고, `Big-O`표기법에 대해 배워봅니다.
 2. 여러가지 자료 구조들에 대해 숙지합니다.
 3. 데이터 구조들의 퍼포먼스를 비교해봅니다.
 4. 추가의 팁으로 다른 구조들을 조금 더 알아봅니다.
 
-##What is `Big-O` Notation?
+## What is `Big-O` Notation?
 
 Big-O 표현법은 정확하게 자료를 연산 할 때 시간 그래프를 표현 할 수 있는 방법입니다.
 - `O(1)`: 제일 이상적인 퍼포먼스를 보여주는 그래프입니다. 연상의 횟수만큼 실행되는 경우입니다.
@@ -23,11 +23,12 @@ Big-O 표현법은 정확하게 자료를 연산 할 때 시간 그래프를 표
 
 (그래프 추가)
 
-##Common iOS Data Structures
+## Common iOS Data Structures
 `Array`, `Dictionarys`, `Sets` 가 가장 흔한 데이터 구조입니다. 각각의 구조와 성능에 대해 알아봅니다. 또한 `Objectice-C`와`Swift`에서 각각의 데이터구조를 비교해봅니다.
 
 ###Arrays
-- `Array`는 순서를 가지고 있는 배열입니다. `index`를 통해서 각각의 아이템에 접근 할 수 있습니다. 
-
+- `Array`는 순서를 가지고 있는 배열입니다. `index`를 통해서 각각의 아이템에 접근 할 수 있습니다. 인덱스를 가지고 아이템을 가져오는 것을 `subscripting`이라고 합니다.
+- `Objective-C`의 `NSArray`는 `Swift`에서 `let`으로 선언된 `Array`와 같습니다. `NSMutableArray`는 `var`로 선언된 `Array`와 같습니다.
+- 
 
 
