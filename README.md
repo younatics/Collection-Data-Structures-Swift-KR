@@ -155,3 +155,9 @@ Counted Mutable set: {(
 - `NSHashTable`은 `NSMutableSet`과 비슷하지만 몇가지 다른점이 있습니다
 - `NSHashTable`은 오브젝트 뿐만 아니라 `non-object`또한 더할 수 있습니다. `NSHashTableOptions`로 메모리 또한 관리 할 수 있습니다.
 - `NSMapTable`은 딕셔너리 같은 자료구조이지만, `NSHashTable`과 비슷하게 메모리를 관리한다는 측면이 있습니다.
+
+---
+
+### Author
+
+**[younatics 🇰🇷](https://younatics.github.io)**
