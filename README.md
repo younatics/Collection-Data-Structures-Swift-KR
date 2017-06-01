@@ -19,7 +19,7 @@ Big-O 표기법은 이 때 필요한 시간, 공간을 * 점근적으로(asympto
 - `O(1)`: 제일 이상적입니다. 처리하는 데이터의 양(n)에 관계 없이 상수 시간만큼 소요되는 경우입니다.
 -  `O(log n)`: 좋은 퍼포먼스를 보여주는 그래프입니다. 데이터 구조에 있는 아이템이 늘어나도 매우 천천히 연산의 횟수가 늘어나게(=걸리는 시간도) 됩니다.
 -  `O(n)`: 중간 단계의 퍼포먼스를 보여주는 그래프입니다. 데이터 구조랑 연산횟수가 일차함수(linear)를 그리며 증가합니다.
-- `O(n (log n))`: (데이터가 10M~100M 넘어갈 경우) 낮은 단계의 퍼포먼스를 보여주는 그래프입니다. 비교 기반의 정렬(comparison based sort)의 시간복잡도 하한(lower bound)이기도 합니다.
+- `O(n (log n))`: (데이터가 10M~100M 넘어갈 경우) 낮은 단계의 퍼포먼스를 보여주는 그래프입니다. 비교 기반 정렬(comparison based sort)의 시간복잡도 하한(lower bound)이기도 합니다.
 - `O(n²) `: 데이터구조에 있는 아이템수의 제곱에 비례하여 늘어납니다. 여기서 부턴 성능이 매우 떨어지고, 추천하지 않습니다.
 - `O(2^n)`: 2의 데이터 구조의 갯수 제곱만큼 증가합니다. 매우 나쁜 퍼포먼스를 보여줍니다. 원소 n개 집합의 모든 부분집합을 출력하는 경우의 시간복잡도와 같습니다.
 - `O(n!)`: 최악의 케이스입니다. 이렇게 코딩이 될 경우에는 답이 없습니다.
@@ -27,7 +27,7 @@ Big-O 표기법은 이 때 필요한 시간, 공간을 * 점근적으로(asympto
 ![Big-o](Images/big-o.png)
 
 ## Common iOS Data Structures
-`Array`, `Dictionaries`, `Sets` 가 가장 흔한 데이터 구조입니다. 각각의 구조와 성능에 대해 알아봅니다. 또한 `Objectice-C`와`Swift`에서 각각의 데이터구조를 비교해봅니다.
+`Arrays`, `Dictionaries`, `Sets` 가 가장 흔한 데이터 구조입니다. 각각의 구조와 성능에 대해 알아봅니다. 또한 `Objective-C`와`Swift`에서 각각의 데이터구조를 비교해봅니다.
 
 ### Arrays
 - `Array`는 순서를 가지고 있는 배열입니다. `index`를 통해서 각각의 아이템에 접근 할 수 있습니다. 인덱스를 가지고 아이템을 가져오는 것을 `subscripting`이라고 합니다.
@@ -49,10 +49,10 @@ Big-O 표기법은 이 때 필요한 시간, 공간을 * 점근적으로(asympto
 - Removing objects is faster in a Swift `Array` than a `NSArray`. From the beginning, middle or end, removing an object degrades between `O(log n)` and `O(n)`. Raw time is better in `Swift` when you remove from the beginning of an Array, but the distinction is a matter of milliseconds.
 - Looking up items in `Swift` is faster for the first time since its inception. Look ups by index grow at very close rates for both Swift `Arrays` and `NSArray` while lookup by object is roughly 80 times faster in Swift.
 
-상기 글은 스위프트가 얼마나 최적화가 잘 되었냐는 글입니다. `Swift`쓰세요. 두번 쓰세요.
+상기 글은 스위프트가 얼마나 잘 최적화 되었는지 보여줍니다. `Swift`쓰세요. 두번 쓰세요.
 
 ### Dictionaries
-- Dictionary(사전)은 특정 순서와 상관없이 `key`값을 통해서 값을 찾을 수 있는 데이터 구조입니다.
+- Dictionary(사전)는 특정 순서와 상관없이 `key`값을 통해서 값을 찾을 수 있는 데이터 구조입니다.
 - Dictionary는 `subscripting`을 지원하기 떄문에, `dictionary["hello"]` 와 같은 방법으로 `hello`라는 `key`값을 통해서 값에 접근 할 수 있습니다.
 - `NSDictionary`와 `NSMutableDictionary`의 차이는 `Array`일 경우와 같습니다.
 - `Swift`의 Dictionary는 타입을 지정해줘야 합니다. (`NSDictionary`가 `NSObject`를 갖는 것 처럼)
@@ -82,7 +82,7 @@ if let ellensCat = cats["Ellen"] {
 - `Objective-c` 에서는 각각 `NSSet`과 `NSMutableSet`이 있습니다.
 
 ##### 이럴때 쓰면 좋습니다.
-- Set은 중복없이 유니크한 값을 중복없이 뽑을 경우 좋습니다.
+- Set은 유니크한 값을 중복없이 뽑을 경우 좋습니다.
 - `Snippet`을 하나 보겠습니다.
 ```Swift
 let names = ["John", "Paul", "George", "Ringo", "Mick", "Keith", "Charlie", "Ronnie"]
@@ -103,7 +103,7 @@ print("Loops: " + loopsCount.description + ", Set contents: " + stringSet.descri
 2. 아이템를 랜덤으로 뽑습니다
 3. 인덱스에 있는 아이를 가져옵니다
 4. 로그를 남깁니다
-5. `mutable set`에 값을 저장힙낟. 만약 값이 저장되어 있는 경우에는 값을 저장하지 않습니다.
+5. `mutable set`에 값을 저장합니다. 만약 값이 저장되어 있는 경우에는 값을 저장하지 않습니다.
 6. 루프 카우트를 늘려서 루프를 다 돌게 합니다
 7. 루프가 끝나면 값을 로그에 남깁니다
 
@@ -126,7 +126,7 @@ Loops: 6, Set contents: ["Ronnie", "John", "Ringo", "George"]
 >캐시는 화면뒤에서 비동기적으로 자동으로 메모리에 상주 할 지, 남을지 결정합니다.
 
 ### NSCountedSet
-- `NSMutableSet`를 상속받아서 만들어진 데이터 구조로, 얼마나 많은 오브젝트가 `mutable set`에 더해해졌는지 알 수 있게 해줍니다.
+- `NSMutableSet`을 상속받아서 만들어진 데이터 구조로, 얼마나 많은 오브젝트가 `mutable set`에 더해해졌는지 알 수 있게 해줍니다.
 - 하단 코드를 참고해주세요
 
 ```Swift
